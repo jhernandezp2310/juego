@@ -1,0 +1,327 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.container {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.difficulty-selector {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  border: 3px solid #667eea;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.difficulty-selector label {
+  display: block;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.difficulty-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.difficulty-btn {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 120px;
+  flex: 1;
+}
+
+.difficulty-btn:hover {
+  background: #f0f0ff;
+  transform: translateY(-2px);
+}
+
+.difficulty-btn.active {
+  background: #667eea;
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+  transform: translateY(-2px);
+}
+
+.game-area {
+  position: relative;
+  min-height: 350px;
+  max-height: 500px;
+  border: 3px solid #e0e0e0;
+  border-radius: 15px;
+  background: #f9f9f9;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.start-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 20px 50px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.start-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.start-button:active {
+  transform: translateY(0);
+}
+
+.reaction-box {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  z-index: 10;
+}
+
+.reaction-box.correct-box {
+  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+}
+
+.reaction-box.wrong-box {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  box-shadow: 0 8px 25px rgba(238, 90, 111, 0.5);
+}
+
+.reaction-box:hover {
+  transform: scale(1.1);
+}
+
+.reaction-box.correct-box:hover {
+  box-shadow: 0 10px 30px rgba(76, 175, 80, 0.7);
+}
+
+.reaction-box.wrong-box:hover {
+  box-shadow: 0 10px 30px rgba(238, 90, 111, 0.7);
+}
+
+.reaction-box:active {
+  transform: scale(0.95);
+}
+
+.waiting-message {
+  padding: 20px;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.error-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 107, 107, 0.95);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
+  z-index: 20;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translate(-50%, -50%) translateX(0); }
+  25% { transform: translate(-50%, -50%) translateX(-10px); }
+  75% { transform: translate(-50%, -50%) translateX(10px); }
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stats-box {
+  background: #f5f5f5;
+  border-radius: 15px;
+  padding: 25px;
+  border: 2px solid #e0e0e0;
+}
+
+.stats-box h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.stat-item:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.best-time {
+  color: #4caf50;
+  font-weight: 700;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  min-width: 180px;
+}
+
+.action-button:hover {
+  background: #5568d3;
+  transform: translateY(-2px);
+}
+
+.action-button:active {
+  transform: translateY(0);
+}
+
+.reset-button {
+  background: #ff6b6b;
+}
+
+.reset-button:hover {
+  background: #ee5a6f;
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .container {
+    padding: 15px;
+    margin: 10px auto;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .difficulty-selector {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .difficulty-selector label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .game-area {
+    min-height: 250px;
+    max-height: 350px;
+    margin-bottom: 15px;
+  }
+
+  .reaction-box {
+    width: 60px;
+    height: 60px;
+  }
+
+  .difficulty-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .difficulty-btn {
+    flex: 1 1 calc(50% - 4px);
+    min-width: calc(50% - 4px);
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+  }
+
+  .action-button {
+    width: 100%;
+  }
+}
+
